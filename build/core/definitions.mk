@@ -1,2 +1,5 @@
-# Include QCOM macros
-include vendor/styx/build/core/qcom_utils.mk
+# Include board/platform macros
+include vendor/styx/build/core/utils.mk
+
+# Include vendor platform definitions
+include vendor/styx/build/core/vendor/*.mk
