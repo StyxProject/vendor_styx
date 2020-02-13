@@ -18,3 +18,6 @@
 
 # Inherit from our versioning
 $(call inherit-product, vendor/styx/config/versioning.mk)
+
+# Inherit from our kernel/header generator
+$(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
