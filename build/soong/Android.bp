@@ -1,12 +1,4 @@
 bootstrap_go_package {
-    name: "soong-styx",
-    pkgPath: "styx/soong/android",
-    srcs: [
-        "android/variable.go",
-    ],
-}
-
-bootstrap_go_package {
     name: "soong-styx-generator",
     pkgPath: "styx/soong/generator",
     deps: [
