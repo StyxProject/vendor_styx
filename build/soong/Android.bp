@@ -1,12 +1,4 @@
 bootstrap_go_package {
-    name: "soong-stormbreaker",
-    pkgPath: "stormbreaker/soong/android",
-    srcs: [
-        "android/variable.go",
-    ],
-}
-
-bootstrap_go_package {
     name: "soong-stormbreaker-generator",
     pkgPath: "stormbreaker/soong/generator",
     deps: [
