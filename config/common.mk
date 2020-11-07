@@ -49,7 +49,7 @@ PRODUCT_COPY_FILES += \
 
 # System mount
 PRODUCT_COPY_FILES += \
-    vendor/aosp/products/common/bin/system-mount.sh:$(TARGET_COPY_OUT_SYSTEM)/install/bin/system-mount.sh
+    vendor/styx/products/common/bin/system-mount.sh:$(TARGET_COPY_OUT_SYSTEM)/install/bin/system-mount.sh
 
 ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
@@ -57,3 +57,7 @@ PRODUCT_COPY_FILES += \
     vendor/styx/products/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
     vendor/styx/products/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
+
+# Pixel APNs
+PRODUCT_COPY_FILES += \
+    vendor/styx/products/common/telephony/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
