@@ -40,3 +40,16 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
 # ThemePicker
 PRODUCT_PACKAGES += \
     ThemePicker
+
+# Backup Tool
+PRODUCT_COPY_FILES += \
+    vendor/styx/products/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/styx/products/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/styx/products/common/bin/50-base.sh:system/addon.d/50-base.sh
+
+ifneq ($(AB_OTA_PARTITIONS),)
+PRODUCT_COPY_FILES += \
+    vendor/styx/products/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/styx/products/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/styx/products/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+endif
