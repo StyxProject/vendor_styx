@@ -23,6 +23,9 @@ $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 # Include our UI package
 -include vendor/styx-ui/config.mk
 
+# Include our CDP
+-include vendor/cdp/common.mk
+
 # Dex optimization
 USE_DEX2OAT_DEBUG := false
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true

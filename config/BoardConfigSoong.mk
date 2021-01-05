@@ -56,7 +56,7 @@ SOONG_CONFIG_styxQcomVars += \
 # Only create soong_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 SOONG_CONFIG_styxQcomVars += \
-    qcom_soong_namespace
+    qcom_display_headers_namespace
 endif
 
 # Soong bool variables
@@ -87,5 +87,8 @@ SOONG_CONFIG_styxGlobalVars_target_process_sdk_version_override := $(TARGET_PROC
 SOONG_CONFIG_styxGlobalVars_target_surfaceflinger_fod_lib := $(TARGET_SURFACEFLINGER_FOD_LIB)
 SOONG_CONFIG_styxGlobalVars_uses_camera_parameter_lib := $(TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY)
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
-SOONG_CONFIG_styxQcomVars_qcom_soong_namespace := $(QCOM_SOONG_NAMESPACE)
+SOONG_CONFIG_styxQcomVars_qcom_display_headers_namespace := vendor/qcom/opensource/commonsys-intf/display
+else
+SOONG_CONFIG_styxQcomVars_qcom_display_headers_namespace := $(QCOM_SOONG_NAMESPACE)/display
 endif
+
