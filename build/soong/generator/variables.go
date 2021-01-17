@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func stormbreakerExpandVariables(ctx android.ModuleContext, in string) string {
-	stormbreakerVars := ctx.Config().VendorConfig("stormbreakerVarsPlugin")
+func styxExpandVariables(ctx android.ModuleContext, in string) string {
+	styxVars := ctx.Config().VendorConfig("styxVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if stormbreakerVars.IsSet(name) {
-			return stormbreakerVars.String(name), nil
+		if styxVars.IsSet(name) {
+			return styxVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand

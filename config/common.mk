@@ -15,7 +15,7 @@
 #
 
 # Inherit from our versioning
-$(call inherit-product, vendor/stormbreaker/config/versioning.mk)
+$(call inherit-product, vendor/styx/config/versioning.mk)
 
 # Inherit from our kernel/header generator
-$(call inherit-product, vendor/stormbreaker/config/BoardConfigStorm.mk)
+$(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)

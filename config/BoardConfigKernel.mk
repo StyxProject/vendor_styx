@@ -104,7 +104,7 @@ endif
 KERNEL_MAKE_FLAGS :=
 
 # Add back threads, ninja cuts this to $(nproc)/2
-KERNEL_MAKE_FLAGS += -j$(shell prebuilts/tools-stormbreaker/$(HOST_PREBUILT_TAG)/bin/nproc --all)
+KERNEL_MAKE_FLAGS += -j$(shell prebuilts/tools-styx/$(HOST_PREBUILT_TAG)/bin/nproc --all)
 
 ifeq ($(KERNEL_ARCH),arm)
   # Avoid "Unknown symbol _GLOBAL_OFFSET_TABLE_" errors
@@ -127,9 +127,9 @@ ifneq ($(TARGET_KERNEL_ADDITIONAL_FLAGS),)
 endif
 
 TOOLS_PATH_OVERRIDE := \
-    PATH=$(BUILD_TOP)/prebuilts/tools-stormbreaker/$(HOST_PREBUILT_TAG)/bin:$$PATH \
-    LD_LIBRARY_PATH=$(BUILD_TOP)/prebuilts/tools-stormbreaker/$(HOST_PREBUILT_TAG)/lib:$$LD_LIBRARY_PATH \
-    PERL5LIB=$(BUILD_TOP)/prebuilts/tools-stormbreaker/common/perl-base
+    PATH=$(BUILD_TOP)/prebuilts/tools-styx/$(HOST_PREBUILT_TAG)/bin:$$PATH \
+    LD_LIBRARY_PATH=$(BUILD_TOP)/prebuilts/tools-styx/$(HOST_PREBUILT_TAG)/lib:$$LD_LIBRARY_PATH \
+    PERL5LIB=$(BUILD_TOP)/prebuilts/tools-styx/common/perl-base
 
 # Set DTBO image locations so the build system knows to build them
 ifeq ($(TARGET_NEEDS_DTBOIMAGE),true)

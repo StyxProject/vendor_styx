@@ -1,5 +1,5 @@
 # Include board/platform macros
-include vendor/stormbreaker/build/core/utils.mk
+include vendor/styx/build/core/utils.mk
 
 # Include vendor platform definitions
-include vendor/stormbreaker/build/core/vendor/*.mk
+include vendor/styx/build/core/vendor/*.mk
