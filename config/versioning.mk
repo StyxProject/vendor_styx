@@ -29,4 +29,5 @@ else
 endif
 
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.system.styx.version=$(PLATFORM_STYX_VERSION)
+    ro.system.styx.version=$(PLATFORM_STYX_VERSION) \
+    org.styxproject.release=$(PLATFORM_STYX_RELEASE)
