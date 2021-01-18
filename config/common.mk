@@ -19,3 +19,6 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
+
+# Include our UI package
+-include vendor/styx-ui/config.mk
