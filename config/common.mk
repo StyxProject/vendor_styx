@@ -61,3 +61,14 @@ endif
 # Pixel APNs
 PRODUCT_COPY_FILES += \
     vendor/styx/products/common/telephony/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+
+# Telephony packages
+PRODUCT_PACKAGES += \
+    Messaging \
+    Stk
+
+# Tethering - allow without requiring a provisioning app
+# (for devices that check this)
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    net.tethering.noprovisioning=true
+
