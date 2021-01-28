@@ -20,6 +20,11 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 
+# Telephony packages
+PRODUCT_PACKAGES += \
+    messaging \
+    Stk
+
 # Include our UI package
 -include vendor/styx-ui/config.mk
 
@@ -64,11 +69,6 @@ endif
 # Pixel APNs
 PRODUCT_COPY_FILES += \
     vendor/styx/products/common/telephony/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
-
-# Telephony packages
-PRODUCT_PACKAGES += \
-    Messaging \
-    Stk
 
 # Tethering - allow without requiring a provisioning app
 # (for devices that check this)
