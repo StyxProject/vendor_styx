@@ -29,7 +29,7 @@ PRODUCT_PACKAGES += \
 -include vendor/styx-ui/config.mk
 
 # Include our CDP
-# -include vendor/cdp/common.mk
+-include vendor/cdp/config.mk
 
 # Dex optimization
 USE_DEX2OAT_DEBUG := false
