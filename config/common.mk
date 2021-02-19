@@ -49,7 +49,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 
 # Packages
 PRODUCT_PACKAGES += \
-    Jelly
+    TimberX
 
 # Blurs
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
