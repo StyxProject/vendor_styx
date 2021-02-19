@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2020 Raphielscape LLC. and Haruka LLC.
+# Copyright (C) 2020 Raphielscape LLC. and Haruka LLC
+# Copyright (C) 2021 Styx Project.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,6 +20,10 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
+
+ifeq ($(BOARD_USES_QCOM_HARDWARE), true)
+$(call inherit-product-if-exists, device/qcom/common/common.mk)
+endif
 
 ifneq ($(TARGET_NO_GAPPS), true)
 $(call inherit-product-if-exists, vendor/google/gms/config.mk)
