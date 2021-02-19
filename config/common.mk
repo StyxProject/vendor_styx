@@ -28,9 +28,6 @@ PRODUCT_PACKAGES += \
 # Include our UI package
 -include vendor/styx-ui/config.mk
 
-# Include our CDP
--include vendor/cdp/config.mk
-
 # Dex optimization
 USE_DEX2OAT_DEBUG := false
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
