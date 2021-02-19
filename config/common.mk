@@ -20,6 +20,11 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 
+ifneq ($(TARGET_NO_GAPPS), true)
+$(call inherit-product-if-exists, vendor/google/gms/config.mk)
+$(call inherit-product-if-exists, vendor/google/pixel/config.mk)
+endif
+
 # Telephony packages
 PRODUCT_PACKAGES += \
     messaging \
