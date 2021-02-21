@@ -28,6 +28,10 @@ endif
 ifneq ($(TARGET_NO_GAPPS), true)
 $(call inherit-product-if-exists, vendor/google/gms/config.mk)
 $(call inherit-product-if-exists, vendor/google/pixel/config.mk)
+
+# Don't preoptimize prebuilts when building GMS.
+DONT_DEXPREOPT_PREBUILTS := true
+
 endif
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
