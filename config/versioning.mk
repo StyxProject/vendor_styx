@@ -15,6 +15,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+ifneq ($(SIGNING_KEYS),)
+    PRODUCT_DEFAULT_DEV_CERTIFICATE := $(SIGNING_KEYS)/releasekey
+endif
+
 PLATFORM_STYX_RELEASE := Athena
 PLATFORM_STYX_VERSION := 1.0
 STYX_BUILD_VARIANT ?= UNOFFICIAL
