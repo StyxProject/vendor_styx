@@ -34,6 +34,9 @@ DONT_DEXPREOPT_PREBUILTS := true
 
 endif
 
+# Properties
+include vendor/styx/config/properties.mk
+
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     keyguard.no_require_sim=true \
     dalvik.vm.debug.alloc=0 \
