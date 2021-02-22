@@ -14,7 +14,7 @@ EXPORT_TO_SOONG := \
 
 # Setup SOONG_CONFIG_* vars to export the vars listed above.
 # Documentation here:
-# https://github.com/LineageOS/android_build_soong/commit/8328367c44085b948c003116c0ed74a047237a69
+# https://github.com/styxOS/android_build_soong/commit/8328367c44085b948c003116c0ed74a047237a69
 
 SOONG_CONFIG_NAMESPACES += styxVarsPlugin
 
@@ -46,6 +46,7 @@ SOONG_CONFIG_styxNvidiaVars += \
 
 SOONG_CONFIG_NAMESPACES += styxQcomVars
 SOONG_CONFIG_styxQcomVars += \
+    legacy_hw_disk_encryption \
     should_wait_for_qsee \
     supports_extended_compress_format \
     supports_hw_fde \
@@ -72,6 +73,7 @@ SOONG_CONFIG_styxQcomVars_supports_hw_fde_perf := $(TARGET_HW_DISK_ENCRYPTION_PE
 SOONG_CONFIG_styxQcomVars_uses_pre_uplink_features_netmgrd := $(TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD)
 SOONG_CONFIG_styxQcomVars_uses_qcom_bsp_legacy := $(TARGET_USES_QCOM_BSP_LEGACY)
 SOONG_CONFIG_styxQcomVars_uses_qti_camera_device := $(TARGET_USES_QTI_CAMERA_DEVICE)
+SOONG_CONFIG_styxQcomVars_legacy_hw_disk_encryption := $(TARGET_LEGACY_HW_DISK_ENCRYPTION)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0
