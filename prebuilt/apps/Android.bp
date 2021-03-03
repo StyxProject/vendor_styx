@@ -1,8 +1,0 @@
-// Copyright (C) 2021 The Styx Project
-
-android_app_import {
-    apk: "TimberX.apk",
-    name: "TimberX",
-    presigned: true,
-    product_specific: true,
-}
