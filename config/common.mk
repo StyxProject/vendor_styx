@@ -34,6 +34,9 @@ DONT_DEXPREOPT_PREBUILTS := true
 
 endif
 
+# IORAP
+PRODUCT_PACKAGES += iorap-nall
+
 # Properties
 include vendor/styx/config/properties.mk
 
