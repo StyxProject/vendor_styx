@@ -23,6 +23,12 @@ $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 
 ifeq ($(BOARD_USES_QCOM_HARDWARE), true)
 $(call inherit-product-if-exists, device/qcom/common/common.mk)
+
+# QTI Permissions
+PRODUCT_COPY_FILES += \
+    vendor/styx/config/permissions/qcom/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
+    vendor/styx/config/permissions/qcom/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
+
 endif
 
 ifneq ($(TARGET_NO_GAPPS), true)
