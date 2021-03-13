@@ -29,6 +29,8 @@ PRODUCT_COPY_FILES += \
     vendor/styx/config/permissions/qcom/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
     vendor/styx/config/permissions/qcom/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
 
+TARGET_FS_CONFIG_GEN += vendor/styx/config/config.fs
+
 endif
 
 ifneq ($(TARGET_NO_GAPPS), true)
