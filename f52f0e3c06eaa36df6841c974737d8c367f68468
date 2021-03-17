@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b78354f7_9e11d213",
+        "filename": "config/versioning.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-17T16:51:28Z",
+      "side": 1,
+      "message": "use STYX_BUILD_VARIANT because PLATFORM_STYX_VERISON not presistant",
+      "revId": "f52f0e3c06eaa36df6841c974737d8c367f68468",
+      "serverId": "7c60af70-d7aa-45f8-8287-f2e69458199b"
+    }
+  ]
+}
