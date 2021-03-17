@@ -31,3 +31,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
     org.styxproject.version=$(PLATFORM_STYX_VERSION) \
     org.styxproject.release=$(PLATFORM_STYX_RELEASE) \
     org.styxproject.device=$(PRODUCT_DEVICE)
+
+ifneq ($(filter OFFICIAL,$(STYX_BUILD_VARIANT)),)
+PRODUCT_PACKAGES += \
+    Updater
+endif
