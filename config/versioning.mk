@@ -30,7 +30,7 @@ PROD_VERSION += styxOS-$(PLATFORM_STYX_VERSION)-$(PLATFORM_STYX_RELEASE)-$(TARGE
 PRODUCT_PRODUCT_PROPERTIES += \
     org.styxproject.version=$(PLATFORM_STYX_VERSION) \
     org.styxproject.release=$(PLATFORM_STYX_RELEASE) \
-    org.styxproject.device=$(PRODUCT_DEVICE)
+    org.styxproject.device=$(TARGET_DEVICE)
 
 ifneq ($(filter OFFICIAL,$(STYX_BUILD_VARIANT)),)
 PRODUCT_PACKAGES += \
