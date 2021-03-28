@@ -21,7 +21,7 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 
-ifeq ($(BOARD_USES_QCOM_HARDWARE), true)
+ifeq ($(TARGET_USES_QCOM_CHIPSET), true)
 $(call inherit-product-if-exists, device/qcom/common/common.mk)
 
 # QTI Permissions
