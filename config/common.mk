@@ -33,6 +33,10 @@ TARGET_FS_CONFIG_GEN += vendor/styx/config/config.fs
 
 endif
 
+# PulseMusic
+PRODUCT_PACKAGES += \
+    PulseMusic
+
 ifneq ($(TARGET_NO_GAPPS), true)
 $(call inherit-product-if-exists, vendor/google/gms/config.mk)
 $(call inherit-product-if-exists, vendor/google/pixel/config.mk)
