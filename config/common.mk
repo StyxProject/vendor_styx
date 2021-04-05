@@ -33,9 +33,8 @@ TARGET_FS_CONFIG_GEN += vendor/styx/config/config.fs
 
 endif
 
-# PulseMusic
-PRODUCT_PACKAGES += \
-    PulseMusic
+# Package definitions
+-include vendor/styx/packages.mk
 
 ifneq ($(TARGET_NO_GAPPS), true)
 $(call inherit-product-if-exists, vendor/google/gms/config.mk)
@@ -45,9 +44,6 @@ $(call inherit-product-if-exists, vendor/google/pixel/config.mk)
 DONT_DEXPREOPT_PREBUILTS := true
 
 endif
-
-# IORAP
-PRODUCT_PACKAGES += iorap-nall
 
 # Properties
 include vendor/styx/config/properties.mk
@@ -65,11 +61,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.disable_rescue=true \
     ro.build.selinux=1
 
-# Telephony packages
-PRODUCT_PACKAGES += \
-    messaging \
-    Stk
-
 # Include our UI package
 -include vendor/styx-ui/config.mk
 
@@ -86,10 +77,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.sf.blurs_are_expensive=1 \
     ro.surface_flinger.supports_background_blur=1
-
-# ThemePicker
-PRODUCT_PACKAGES += \
-    ThemePicker
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
