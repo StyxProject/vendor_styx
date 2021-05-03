@@ -46,6 +46,10 @@ PRODUCT_PACKAGES += \
 
 endif
 
+# TimeWeather
+PRODUCT_PACKAGES += \
+    TimeWeather
+
 # PulseMusic
 PRODUCT_PACKAGES += \
     PulseMusic
