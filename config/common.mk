@@ -24,6 +24,9 @@ $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 ifeq ($(TARGET_USES_QCOM_CHIPSET), true)
 $(call inherit-product-if-exists, device/qcom/common/common.mk)
 
+# Styx Boot Animation
+PRODUCT_COPY_FILES += vendor/styx/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
+
 # QTI Permissions
 PRODUCT_COPY_FILES += \
     vendor/styx/config/permissions/qcom/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
