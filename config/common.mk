@@ -53,6 +53,10 @@ endif
 PRODUCT_PACKAGES += \
     TimeWeather
 
+# Moto Live Wallpaper
+PRODUCT_PACKAGES += \
+    MotoLiveWallpaper3
+
 # PulseMusic
 PRODUCT_PACKAGES += \
     PulseMusic
