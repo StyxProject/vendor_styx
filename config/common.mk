@@ -24,6 +24,13 @@ $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 # Styx Boot Animation
 PRODUCT_COPY_FILES += vendor/styx/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 
+# Styx Overlays
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    vendor/styx/overlay
+
+DEVICE_PACKAGE_OVERLAYS += \
+    vendor/styx/overlay
+
 ifeq ($(TARGET_USES_QCOM_CHIPSET), true)
 $(call inherit-product-if-exists, device/qcom/common/common.mk)
 
