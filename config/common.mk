@@ -64,6 +64,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MotoLiveWallpaper3
 
+# Navbar
+PRODUCT_PACKAGES += \
+    GesturalNavigationOverlayLong \
+    GesturalNavigationOverlayMedium
+
 # PulseMusic
 PRODUCT_PACKAGES += \
     PulseMusic
