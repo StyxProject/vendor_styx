@@ -64,6 +64,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MotoLiveWallpaper3
 
+# Styx Wallpapers
+PRODUCT_PACKAGES += \
+    StyxWallpapers
+
 # PulseMusic
 PRODUCT_PACKAGES += \
     PulseMusic
