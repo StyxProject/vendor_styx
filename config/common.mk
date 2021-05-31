@@ -51,6 +51,13 @@ PRODUCT_COPY_FILES += \
 
 endif
 
+# ST NFC Extensions
+ifeq ($(TARGET_USES_STNFC), true)
+$(warning "Target has defined that it uses STNFC, including required repositories...")
+-include vendor/stnfc/NfcDeviceConfig.mk
+-include vendor/stnfc/NfcDeviceConfigVendor.mk
+endif
+
 # Package definitions
 
 ifeq ($(TARGET_USES_QCOM_CHIPSET), true)
