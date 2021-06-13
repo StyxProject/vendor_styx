@@ -1,15 +1,6 @@
 # Kernel
 include vendor/styx/config/BoardConfigKernel.mk
 
-# Required for QTI BT Stack
-ifeq ($(TARGET_USE_QTI_BT_STACK),true)
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/opensource/commonsys/packages/apps/Bluetooth \
-    vendor/qcom/opensource/commonsys/system/bt/conf
-else
-PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
-endif
-
 # Qcom-specific bits
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 include vendor/styx/config/BoardConfigQcom.mk
