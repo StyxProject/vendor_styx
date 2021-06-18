@@ -79,6 +79,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MotoLiveWallpaper3
 
+# StyxThemesStub
+PRODUCT_PACKAGES += \
+    StyxThemesStub
+
 # Styx Wallpapers
 PRODUCT_PACKAGES += \
     StyxWallpapers
