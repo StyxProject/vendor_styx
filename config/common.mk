@@ -148,10 +148,12 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Settings \
     SystemUI
 
+ifneq ($(TARGET_DISABLE_BLUR), true)
 # Blurs
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.sf.blurs_are_expensive=1 \
     ro.surface_flinger.supports_background_blur=1
+endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
