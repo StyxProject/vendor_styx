@@ -43,14 +43,6 @@ TARGET_FS_CONFIG_GEN += vendor/styx/config/config.fs
 
 endif
 
-# MediaTek permissions.
-ifeq ($(TARGET_USES_MEDIATEK_CHIPSET), true)
-
-PRODUCT_COPY_FILES += \
-    vendor/styx/config/permissions/mediatek/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
-
-endif
-
 # ST NFC Extensions
 ifeq ($(TARGET_USES_STNFC), true)
 $(warning "Target has defined that it uses STNFC, including required repositories...")
