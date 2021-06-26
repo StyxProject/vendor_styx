@@ -91,6 +91,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ExactCalculator
 
+# Chromium 
+PRODUCT_PACKAGES += \
+    TrichromeChrome \
+    TrichromeWebView
+
 # IORAP
 PRODUCT_PACKAGES += iorap-nall
 
