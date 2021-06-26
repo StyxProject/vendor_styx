@@ -87,6 +87,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     QuickAccessWallet
 
+# AOSP apps
+PRODUCT_PACKAGES += \
+    ExactCalculator
+
 # IORAP
 PRODUCT_PACKAGES += iorap-nall
 
