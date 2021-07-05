@@ -27,7 +27,7 @@ STYX_DATE_UTC := $(shell date -u '+%Y%m%d-%H%M')
 
 PROD_VERSION += styxOS-$(PLATFORM_STYX_VERSION)-$(PLATFORM_STYX_RELEASE)-$(TARGET_DEVICE)-$(STYX_BUILD_VARIANT)-$(STYX_DATE_UTC)
 
-PRODUCT_PRODUCT_PROPERTIES += \
+STYX_PROPERTIES += \
     org.styxproject.version=$(PLATFORM_STYX_VERSION) \
     org.styxproject.release=$(PLATFORM_STYX_RELEASE) \
     org.styxproject.release_type=$(STYX_BUILD_VARIANT) \
