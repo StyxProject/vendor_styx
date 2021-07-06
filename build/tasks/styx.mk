@@ -21,6 +21,6 @@ TARGET_FILES_PACKAGE := $(PRODUCT_OUT)/$(PROD_VERSION).zip
 .PHONY: styx-ota
 styx-ota: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) mv $(INTERNAL_OTA_PACKAGE_TARGET) $(TARGET_FILES_PACKAGE)
-	$(hide) $(MD5SUM) $(TARGET_FILES_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(TARGET_FILES_PACKAGE).md5sum
+	$(hide) md5sum $(TARGET_FILES_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(TARGET_FILES_PACKAGE).md5sum
 	$(hide) ./vendor/styx/scripts/generate_json_build_info.sh $(TARGET_FILES_PACKAGE)
 	@echo "Package Complete: $(TARGET_FILES_PACKAGE)" >&2
