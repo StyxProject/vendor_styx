@@ -87,15 +87,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     QuickAccessWallet
 
-# AOSP apps
-PRODUCT_PACKAGES += \
-    ExactCalculator
-
-# Chromium 
-PRODUCT_PACKAGES += \
-    TrichromeChrome \
-    TrichromeWebView
-
 # IORAP
 PRODUCT_PACKAGES += iorap-nall
 
@@ -108,6 +99,21 @@ PRODUCT_PACKAGES += \
 # ThemePicker
 PRODUCT_PACKAGES += \
     ThemePicker
+
+ifneq ($(TARGET_NO_GAPPS), true)
+$(call inherit-product-if-exists, vendor/google/gms/config.mk)
+$(call inherit-product-if-exists, vendor/google/pixel/config.mk)
+
+ifeq ($(TARGET_FLATTEN_APEX), false)
+$(call inherit-product-if-exists, vendor/google/modules/build/mainline_modules_r.mk)
+else
+$(call inherit-product-if-exists, vendor/google/modules/build/mainline_modules_r_flatten_apex.mk)
+endif
+
+# Don't preoptimize prebuilts when building GMS.
+DONT_DEXPREOPT_PREBUILTS := true
+
+endif
 
 # Properties
 include vendor/styx/config/properties.mk
@@ -169,5 +175,3 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Face Unlock
 $(call inherit-product-if-exists, external/faceunlock/config.mk)
-
--include vendor/styx/config/gms.mk
