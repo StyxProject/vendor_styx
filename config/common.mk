@@ -24,6 +24,15 @@ $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 # Styx Boot Animation
 PRODUCT_COPY_FILES += vendor/styx/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 
+# Bluetooth differentiation.
+ifeq ($(TARGET_USE_QTI_BT_STACK),true)
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/qcom/opensource/commonsys/packages/apps/Bluetooth \
+    vendor/qcom/opensource/commonsys/system/bt/conf
+else
+PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
+endif
+
 # Styx Overlays
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     vendor/styx/overlay
