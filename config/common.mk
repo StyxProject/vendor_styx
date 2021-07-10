@@ -92,6 +92,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     PulseMusic
 
+# Styx Connect
+PRODUCT_PACKAGES += \
+    StyxConnect
+
 # SystemUI plugins
 PRODUCT_PACKAGES += \
     QuickAccessWallet
