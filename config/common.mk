@@ -24,15 +24,6 @@ $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 # Styx Boot Animation
 PRODUCT_COPY_FILES += vendor/styx/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 
-# Bluetooth differentiation.
-ifeq ($(TARGET_USE_QTI_BT_STACK),true)
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/opensource/commonsys/packages/apps/Bluetooth \
-    vendor/qcom/opensource/commonsys/system/bt/conf
-else
-PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
-endif
-
 # Styx Overlays
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     vendor/styx/overlay
@@ -49,56 +40,26 @@ PRODUCT_COPY_FILES += \
     vendor/styx/config/permissions/qcom/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
 
 TARGET_FS_CONFIG_GEN += vendor/styx/config/config.fs
-
-endif
-
-# ST NFC Extensions
-ifeq ($(TARGET_USES_STNFC), true)
-$(warning "Target has defined that it uses STNFC, including required repositories...")
--include vendor/stnfc/NfcDeviceConfig.mk
--include vendor/stnfc/NfcDeviceConfigVendor.mk
 endif
 
 # Package definitions
 
 ifeq ($(TARGET_USES_QCOM_CHIPSET), true)
-
 # QTI VNDK Framework Detect
 PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti \
     libqti_vndfwk_detect \
     libvndfwk_detect_jni.qti.vendor \
     libqti_vndfwk_detect.vendor
-
 endif
-
-# TimeWeather
-PRODUCT_PACKAGES += \
-    TimeWeather
-
-# Moto Live Wallpaper
-PRODUCT_PACKAGES += \
-    MotoLiveWallpaper3
 
 # StyxThemesStub
 PRODUCT_PACKAGES += \
     StyxThemesStub
 
-# Styx Wallpapers
-PRODUCT_PACKAGES += \
-    StyxWallpapers
-
 # PulseMusic
 PRODUCT_PACKAGES += \
     PulseMusic
-
-# Styx Connect
-PRODUCT_PACKAGES += \
-    StyxConnect
-
-# SystemUI plugins
-PRODUCT_PACKAGES += \
-    QuickAccessWallet
 
 # IORAP
 PRODUCT_PACKAGES += iorap-nall
@@ -112,21 +73,6 @@ PRODUCT_PACKAGES += \
 # ThemePicker
 PRODUCT_PACKAGES += \
     ThemePicker
-
-ifneq ($(TARGET_NO_GAPPS), true)
-$(call inherit-product-if-exists, vendor/google/gms/config.mk)
-$(call inherit-product-if-exists, vendor/google/pixel/config.mk)
-
-ifeq ($(TARGET_FLATTEN_APEX), false)
-$(call inherit-product-if-exists, vendor/google/modules/build/mainline_modules_r.mk)
-else
-$(call inherit-product-if-exists, vendor/google/modules/build/mainline_modules_r_flatten_apex.mk)
-endif
-
-# Don't preoptimize prebuilts when building GMS.
-DONT_DEXPREOPT_PREBUILTS := true
-
-endif
 
 # Properties
 include vendor/styx/config/properties.mk
@@ -185,6 +131,3 @@ PRODUCT_COPY_FILES += \
 # (for devices that check this)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     net.tethering.noprovisioning=true
-
-# Face Unlock
-$(call inherit-product-if-exists, external/faceunlock/config.mk)

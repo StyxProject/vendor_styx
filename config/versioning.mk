@@ -2,6 +2,7 @@
 # Copyright (C) 2018-2019 The Pixel3ROM Project
 # Copyright (C) 2020 Raphielscape LLC. and Haruka LLC.
 # Copyright (C) 2020 StormbreakerOSS
+# Copyright (C) 2021 Styx Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,13 +20,12 @@ ifneq ($(SIGNING_KEYS),)
     PRODUCT_DEFAULT_DEV_CERTIFICATE := $(SIGNING_KEYS)/releasekey
 endif
 
-PLATFORM_STYX_RELEASE := Athena
-PLATFORM_STYX_VERSION := 1.8
+PLATFORM_STYX_VERSION := 2.0
 STYX_BUILD_VARIANT ?= UNOFFICIAL
 TARGET_PRODUCT_SHORT := $(subst styx_,,$(TARGET_DEVICE))
 STYX_DATE_UTC := $(shell date -u '+%Y%m%d-%H%M')
 
-PROD_VERSION += styxOS-$(PLATFORM_STYX_VERSION)-$(PLATFORM_STYX_RELEASE)-$(TARGET_DEVICE)-$(STYX_BUILD_VARIANT)-$(STYX_DATE_UTC)
+PROD_VERSION += styx-$(PLATFORM_STYX_VERSION)-$(TARGET_DEVICE)-$(STYX_BUILD_VARIANT)-$(STYX_DATE_UTC)
 
 STYX_PROPERTIES += \
     org.styxproject.version=$(PLATFORM_STYX_VERSION) \
