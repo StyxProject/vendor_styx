@@ -29,7 +29,6 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 
 SOONG_CONFIG_NAMESPACES += styxGlobalVars
 SOONG_CONFIG_styxGlobalVars += \
-    additional_gralloc_10_usage_bits \
     bootloader_message_offset \
     has_legacy_camera_hal1 \
     ignores_ftp_pptp_conntrack_failure \
@@ -82,14 +81,12 @@ SOONG_CONFIG_styxQcomVars_legacy_hw_disk_encryption := $(TARGET_LEGACY_HW_DISK_E
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS ?= 0
 TARGET_INIT_VENDOR_LIB ?= vendor_init
 TARGET_INPUTDISPATCHER_SKIP_EVENT_KEY ?= 0
 TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY ?= libcamera_parameters
 TARGET_SURFACEFLINGER_FOD_LIB ?= surfaceflinger_fod_lib
 
 # Soong value variables
-SOONG_CONFIG_styxGlobalVars_additional_gralloc_10_usage_bits := $(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS)
 SOONG_CONFIG_styxGlobalVars_bootloader_message_offset := $(BOOTLOADER_MESSAGE_OFFSET)
 SOONG_CONFIG_styxGlobalVars_target_init_vendor_lib := $(TARGET_INIT_VENDOR_LIB)
 SOONG_CONFIG_styxGlobalVars_target_ld_shim_libs := $(subst $(space),:,$(TARGET_LD_SHIM_LIBS))

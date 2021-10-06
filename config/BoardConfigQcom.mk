@@ -36,17 +36,6 @@ ifeq ($(call is-board-platform-in-list, $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_
     TARGET_USES_DRM_PP := true
 endif
 
-# Mark GRALLOC_USAGE_HW_2D, GRALLOC_USAGE_EXTERNAL_DISP and GRALLOC_USAGE_PRIVATE_WFD as valid gralloc bits
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS ?= 0
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 10)
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 13)
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 21)
-
-# Mark GRALLOC_USAGE_PRIVATE_HEIF_VIDEO as valid gralloc bits on UM platforms that support it
-ifeq ($(call is-board-platform-in-list, $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)),true)
-    TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 27)
-endif
-
 # List of targets that use master side content protection
 MASTER_SIDE_CP_TARGET_LIST := msm8996 $(UM_4_4_FAMILY) $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
 
@@ -97,4 +86,3 @@ PRODUCT_SOONG_NAMESPACES += \
 ifeq ($(TARGET_HW_DISK_ENCRYPTION),true)
     TARGET_CRYPTFS_HW_PATH ?= vendor/qcom/opensource/cryptfs_hw
 endif
-
