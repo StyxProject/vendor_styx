@@ -29,7 +29,6 @@ PROD_VERSION += styx-$(PLATFORM_STYX_VERSION)-$(TARGET_DEVICE)-$(STYX_BUILD_VARI
 
 STYX_PROPERTIES += \
     org.styxproject.version=$(PLATFORM_STYX_VERSION) \
-    org.styxproject.release=$(PLATFORM_STYX_RELEASE) \
     org.styxproject.release_type=$(STYX_BUILD_VARIANT) \
     org.styxproject.device=$(TARGET_DEVICE)
 
