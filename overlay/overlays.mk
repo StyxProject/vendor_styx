@@ -1,6 +1,4 @@
 #
-# Copyright (C) 2020 Raphielscape LLC.
-# Copyright (C) 2020 Team StormBreaker
 # Copyright (C) 2021 The Styx Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,14 +14,5 @@
 # limitations under the License.
 #
 
-# Inherit from our versioning
-$(call inherit-product, vendor/styx/config/versioning.mk)
-
-# Inherit from our kernel/header generator
-$(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
-
-# Inherit system packages
-$(call inherit-product, vendor/styx/config/packages/system.mk)
-
-# Inherit overlays
-$(call inherit-product, vendor/styx/overlay/overlays.mk)
+PRODUCT_PACKAGES += \
+    StyxFrameworksOverlay
