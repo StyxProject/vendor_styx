@@ -23,7 +23,7 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 
 # Inherit system packages
-$(call inherit-product, vendor/styx/config/packages/system.mk)
+$(call inherit-product, vendor/styx/prebuilts/targets.mk)
 
 # Inherit overlays
 $(call inherit-product, vendor/styx/overlay/overlays.mk)

@@ -15,4 +15,10 @@
 #
 
 # Boot Animation
-PRODUCT_COPY_FILES += vendor/styx/prebuilts/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
+PRODUCT_COPY_FILES += vendor/styx/prebuilts/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+
+# Ringtone
+PRODUCT_COPY_FILES += vendor/styx/prebuilts/sounds/styx.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/styx.ogg
+
+PRODUCT_PRODUCT_OVERRIDES += \
+    ro.config.ringtone=styx.ogg
