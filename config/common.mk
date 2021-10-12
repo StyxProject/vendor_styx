@@ -21,3 +21,6 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
+
+# Inherit system packages
+$(call inherit-product, vendor/styx/config/packages/system.mk)
