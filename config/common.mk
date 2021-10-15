@@ -27,3 +27,6 @@ $(call inherit-product, vendor/styx/prebuilts/targets.mk)
 
 # Inherit overlays
 $(call inherit-product, vendor/styx/overlay/overlays.mk)
+
+# Inherit properties
+TARGET_PRODUCT_PROP += vendor/styx/config/properties/product.prop
