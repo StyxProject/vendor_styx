@@ -1,0 +1,6 @@
+#
+# system.prop for The Styx Project
+#
+
+# Disable blur on app launches
+ro.launcher.blur.appLaunch=0
