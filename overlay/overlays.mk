@@ -15,4 +15,5 @@
 #
 
 PRODUCT_PACKAGES += \
-    StyxFrameworksOverlay
+    StyxFrameworksOverlay \
+    StyxSystemUIOverlay
