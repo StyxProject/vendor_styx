@@ -22,7 +22,7 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 
-# Inherit system packages
+# Inherit prebuilt packages
 $(call inherit-product, vendor/styx/prebuilts/targets.mk)
 
 # Inherit overlays
@@ -31,3 +31,7 @@ $(call inherit-product, vendor/styx/overlay/overlays.mk)
 # Inherit properties
 TARGET_PRODUCT_PROP += vendor/styx/config/properties/product.prop
 TARGET_SYSTEM_PROP += vendor/styx/config/properties/system.prop
+
+# Inherit system packages
+$(call inherit-product, vendor/styx/config/packages.mk)
+
