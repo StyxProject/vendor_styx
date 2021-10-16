@@ -22,6 +22,9 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 # Inherit from our kernel/header generator
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 
+# Inherit from fonts
+$(call inherit-product, vendor/styx/fonts/fonts.mk)
+
 # Inherit prebuilt packages
 $(call inherit-product, vendor/styx/prebuilts/targets.mk)
 
