@@ -14,7 +14,8 @@
 # limitations under the License.
 #
 
+PRODUCT_PACKAGE_OVERLAYS += vendor/styx/overlay/common
+
 PRODUCT_PACKAGES += \
     StyxFrameworksOverlay \
-    StyxSystemUIOverlay \
-    StyxLauncher3Overlay
+    StyxSystemUIOverlay
