@@ -2974,7 +2974,7 @@
   <apn carrier="TT-WAP" mcc="470" mnc="04" apn="wap" proxy="192.168.145.101" port="9201" type="default,supl" />
   <apn carrier="Teletalk-MMS" mcc="470" mnc="04" apn="mms" mmsc="http://10.5.4.22:38090/was" mmsproxy="10.5.4.40" mmsport="8080" type="mms" />
   <apn carrier="Airtel Internet" mcc="470" mnc="07" apn="internet" type="default,supl" />
-  <apn carrier="Airtel WAP" mcc="470" mnc="07" apn="wap"type="default,supl" />
+  <apn carrier="Airtel WAP" mcc="470" mnc="07" apn="wap" type="default,supl" />
   <apn carrier="Airtel MMS" mcc="470" mnc="07" apn="mms" mmsc="http://bd.airtel.com" mmsproxy="10.128.5.6" type="mms" />
   <apn carrier="Maxis 3g Internet" mcc="502" mnc="12" apn="unet" user="maxis" password="" type="default,supl" />
   <apn carrier="Maxis 3G WAP GPRS" mcc="502" mnc="12" apn="unet" proxy="202.75.133.49" port="80" user="maxis" password="" type="default,supl" />
