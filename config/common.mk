@@ -38,3 +38,5 @@ TARGET_SYSTEM_PROP += vendor/styx/config/properties/system.prop
 # Inherit system packages
 $(call inherit-product, vendor/styx/config/packages.mk)
 
+# Inherit SoC-specific bits
+$(call inherit-product, vendor/styx/soc/soc.mk)
