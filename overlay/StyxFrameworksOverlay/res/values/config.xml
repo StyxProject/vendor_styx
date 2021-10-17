@@ -65,4 +65,7 @@
     <!-- Whether to show estimate in QS header. Default to false in case there's not enough
      space -->
     <bool name="config_showBatteryEstimateQSBH">true</bool>
+
+    <!-- Make the icons rounded -->
+    <bool name="config_useRoundIcon">true</bool>
 </resources>
