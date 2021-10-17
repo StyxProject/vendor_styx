@@ -18,3 +18,8 @@
 ifeq ($(TARGET_USES_QCOM_CHIPSET), true)
 $(call inherit-product, vendor/styx/soc/qcom/qssi.mk)
 endif
+
+# Inherit MediaTek board stuff
+ifeq ($(TARGET_USES_MEDIATEK_CHIPSET), true)
+$(call inherit-product, vendor/styx/soc/mediatek/mssi.mk)
+endif
