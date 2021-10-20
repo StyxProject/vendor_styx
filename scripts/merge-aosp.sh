@@ -9,7 +9,7 @@ blu=$'\e[1;34m'
 end=$'\e[0m'
 
 REMOTE="styx"
-BRANCH="R"
+BRANCH="S"
 
 BLACKLIST="manifest \
 packages/apps/Gallery2"
