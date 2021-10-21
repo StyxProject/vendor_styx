@@ -17,3 +17,7 @@
 # Styles and Wallpapers
 PRODUCT_PACKAGES += \
     ThemePicker
+
+# GrapheneOS Camera
+PRODUCT_PACKAGES += \
+    Camera
