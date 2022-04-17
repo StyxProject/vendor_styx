@@ -14,8 +14,9 @@
 # limitations under the License.
 #
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/styx/overlay/common
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/styx_arm64.mk
 
-PRODUCT_PACKAGES += \
-    StyxFrameworksOverlay \
-    StyxSystemUIOverlay
+COMMON_LUNCH_CHOICES := \
+    styx_arm64-eng \
+    styx_arm64-userdebug

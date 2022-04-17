@@ -34,3 +34,14 @@ $(call inherit-product, vendor/styx/overlay/overlays.mk)
 # Inherit properties
 TARGET_PRODUCT_PROP += vendor/styx/config/properties/product.prop
 TARGET_SYSTEM_PROP += vendor/styx/config/properties/system.prop
+
+# Inherit system packages
+$(call inherit-product, vendor/styx/config/packages.mk)
+
+# Inherit SoC-specific bits
+$(call inherit-product, vendor/styx/soc/soc.mk)
+
+# Inherit GMS
+ifneq ($(TARGET_DISABLES_GMS), true)
+$(call inherit-product-if-exists, vendor/google/gms/config.mk)
+endif

@@ -10,3 +10,6 @@ dalvik.vm.dex2oat64.enabled=true
 
 # Disable MTE async for system_server
 arm64.memtag.process.system_server=off
+
+# Disable writing to XML as binary.
+persist.sys.binary_xml=false

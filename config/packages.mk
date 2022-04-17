@@ -14,8 +14,10 @@
 # limitations under the License.
 #
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/styx/overlay/common
-
+# Styles and Wallpapers
 PRODUCT_PACKAGES += \
-    StyxFrameworksOverlay \
-    StyxSystemUIOverlay
+    ThemePicker
+
+# GrapheneOS Camera
+PRODUCT_PACKAGES += \
+    Camera

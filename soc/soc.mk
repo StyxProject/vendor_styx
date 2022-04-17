@@ -14,8 +14,12 @@
 # limitations under the License.
 #
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/styx/overlay/common
+# Inherit Qualcomm board stuff
+ifeq ($(TARGET_USES_QCOM_CHIPSET), true)
+$(call inherit-product, vendor/styx/soc/qcom/qssi.mk)
+endif
 
-PRODUCT_PACKAGES += \
-    StyxFrameworksOverlay \
-    StyxSystemUIOverlay
+# Inherit MediaTek board stuff
+ifeq ($(TARGET_USES_MEDIATEK_CHIPSET), true)
+$(call inherit-product, vendor/styx/soc/mediatek/mssi.mk)
+endif
