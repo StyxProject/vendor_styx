@@ -21,7 +21,13 @@ PLATFORM_STYX_VERSION_MAJOR := 2.0
 PLATFORM_STYX_VERSION_MINOR := alpha1
 PLATFORM_STYX_RELEASE := $(PLATFORM_STYX_VERSION_MAJOR)-$(PLATFORM_STYX_VERSION_MINOR)
 
-TARGET_PRODUCT_SHORT := $(subst styx_,,$(TARGET_DEVICE))
+# Guidelines for setting Styx Build ID:
+#  - SR2  = S Release 2
+#  - 32   = API Level 32
+#  - OSR  = Open Source Release
+#  - PR01 = Prerelease ver 01
+
+PLATFORM_STYX_BUILD_ID := SR2.32.OSR.PR01
 
 ifeq ($(STYX_BUILD_VARIANT),OFFICIAL)
     PROD_VERSION += styx-$(PLATFORM_STYX_RELEASE)-$(TARGET_DEVICE)-$(shell date +%m%d%H%M)-OFFICIAL
@@ -30,4 +36,5 @@ else
 endif
 
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.system.styx.version=$(PLATFORM_STYX_RELEASE)
+    ro.system.styx.version=$(PLATFORM_STYX_RELEASE) \
+    ro.styx.build.id=$(PLATFORM_STYX_BUILD_ID)
