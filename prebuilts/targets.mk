@@ -22,3 +22,7 @@ PRODUCT_COPY_FILES += vendor/styx/prebuilts/bootanimation/bootanimation.zip:$(TA
 
 # Ringtone
 PRODUCT_COPY_FILES += vendor/styx/prebuilts/sounds/Styx.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/Styx.ogg
+
+# GrapheneOS Camera
+PRODUCT_PACKAGES += \
+    Camera
