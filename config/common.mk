@@ -31,6 +31,16 @@ $(call inherit-product, vendor/styx/prebuilts/targets.mk)
 # Inherit overlays
 $(call inherit-product, vendor/styx/overlay/overlays.mk)
 
+# Include GMS, Modules, and Pixel features.
+$(call inherit-product, vendor/google/gms/config.mk)
+$(call inherit-product, vendor/google/pixel/config.mk)
+
+ifeq ($(TARGET_FLATTEN_APEX), false)
+$(call inherit-product-if-exists, vendor/google/modules/build/mainline_modules_s.mk)
+else
+$(call inherit-product-if-exists, vendor/google/modules/build/mainline_modules_s_flatten_apex.mk)
+endif
+
 # Inherit properties
 TARGET_PRODUCT_PROP += vendor/styx/config/properties/product.prop
 TARGET_SYSTEM_PROP += vendor/styx/config/properties/system.prop
