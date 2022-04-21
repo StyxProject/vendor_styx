@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-TARGET_FILES_PACKAGE := $(PRODUCT_OUT)/$(PROD_VERSION).zip
+TARGET_FILES_PACKAGE := $(PRODUCT_OUT)/$(PLATFORM_STYX_PACKAGE).zip
 
 .PHONY: styx-ota
 styx-ota: $(INTERNAL_OTA_PACKAGE_TARGET)
