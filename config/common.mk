@@ -48,4 +48,5 @@ TARGET_SYSTEM_PROP += vendor/styx/config/properties/system.prop
 # Packages
 PRODUCT_PACKAGES += \
     ThemePicker \
+    SetupWizard \
     StyxWidget
