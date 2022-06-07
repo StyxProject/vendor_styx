@@ -46,4 +46,6 @@ TARGET_PRODUCT_PROP += vendor/styx/config/properties/product.prop
 TARGET_SYSTEM_PROP += vendor/styx/config/properties/system.prop
 
 # Packages
-PRODUCT_PACKAGES += ThemePicker
+PRODUCT_PACKAGES += \
+    ThemePicker \
+    StyxWidget
