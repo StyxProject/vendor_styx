@@ -31,11 +31,17 @@ $(call inherit-product, vendor/styx/prebuilts/targets.mk)
 # Inherit overlays
 $(call inherit-product, vendor/styx/overlay/overlays.mk)
 
+ifeq ($(INTERNAL_FACTORY_BUILD),true)
+# Include partner GMS target
+$(call inherit-product, vendor/partner_gms/products/gms.mk)
+$(call inherit-product, vendor/partner_gms/products/turbo.mk)
+else
 # Include GMS, Modules, and Pixel features.
 $(call inherit-product, vendor/google/gms/config.mk)
 $(call inherit-product, vendor/google/pixel/config.mk)
+endif
 
-ifeq ($(TARGET_FLATTEN_APEX), false)
+ifeq ($(TARGET_FLATTEN_APEX),false)
 $(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_s.mk)
 else
 $(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_s_flatten_apex.mk)
