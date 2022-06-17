@@ -34,7 +34,7 @@ $(call inherit-product, vendor/styx/overlay/overlays.mk)
 ifeq ($(INTERNAL_FACTORY_BUILD),true)
 # Include partner GMS target
 $(call inherit-product, vendor/partner_gms/products/gms.mk)
-$(call inherit-product, vendor/partner_gms/products/turbo.mk)
+#$(call inherit-product, vendor/partner_gms/products/turbo.mk)
 else
 # Include GMS, Modules, and Pixel features.
 $(call inherit-product, vendor/google/gms/config.mk)
