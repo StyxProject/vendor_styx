@@ -31,20 +31,30 @@ $(call inherit-product, vendor/styx/prebuilts/targets.mk)
 # Inherit overlays
 $(call inherit-product, vendor/styx/overlay/overlays.mk)
 
-ifeq ($(INTERNAL_FACTORY_BUILD),true)
-# Include partner GMS target
-$(call inherit-product, vendor/partner_gms/products/gms.mk)
-#$(call inherit-product, vendor/partner_gms/products/turbo.mk)
+# Inherit GMS
+ifneq ($(TARGET_DOES_NOT_USE_GAPPS), true)
+
+ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase=android-google
 else
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
+endif
+
+# Don't dexpreopt prebuilts. (For GMS).
+DONT_DEXPREOPT_PREBUILTS := true
+
 # Include GMS, Modules, and Pixel features.
 $(call inherit-product, vendor/google/gms/config.mk)
 $(call inherit-product, vendor/google/pixel/config.mk)
-endif
 
-ifeq ($(TARGET_FLATTEN_APEX),false)
-$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_s.mk)
+# Anything including updatable_apex.mk should have done so by now.
+ifeq ($(TARGET_FLATTEN_APEX), false)
+$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules.mk)
 else
-$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_s_flatten_apex.mk)
+$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_flatten_apex.mk)
+endif
 endif
 
 # Inherit properties
