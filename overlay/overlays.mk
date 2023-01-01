@@ -16,4 +16,5 @@
 
 PRODUCT_PACKAGES += \
     StyxFrameworksOverlay \
+    StyxLauncher3Overlay \
     StyxSystemUIOverlay
