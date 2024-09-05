@@ -3,7 +3,7 @@ include vendor/styx/config/BoardConfigKernel.mk
 
 # Qcom-specific bits
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include vendor/styx/config/BoardConfigQcom.mk
+	include hardware/qcom-caf/common/BoardConfigQcom.mk
 endif
 
 # Soong

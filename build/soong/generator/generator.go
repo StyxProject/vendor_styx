@@ -1,5 +1,5 @@
 // Copyright 2015 Google Inc. All rights reserved.
-// Copyright (C) 2018 The LineageOS Project
+// Copyright (C) 2018,2021 The LineageOS Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,8 +29,6 @@ import (
 
 func init() {
 	android.RegisterModuleType("styx_generator", GeneratorFactory)
-
-	pctx.HostBinToolVariable("sboxCmd", "sbox")
 }
 
 var String = proptools.String
@@ -154,7 +152,7 @@ func (g *Module) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 				var path android.OptionalPath
 
 				if t, ok := module.(HostToolProvider); ok {
-					if !t.(android.Module).Enabled() {
+					if !t.(android.Module).Enabled(ctx) {
 						if ctx.Config().AllowMissingDependencies() {
 							ctx.AddMissingDependencies([]string{tool})
 						} else {
@@ -186,7 +184,9 @@ func (g *Module) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 					ctx.ModuleErrorf("host tool %q missing output file", tool)
 				}
 			default:
-				ctx.ModuleErrorf("unknown dependency on %q", ctx.OtherModuleName(module))
+				if !android.IsSourceDepTagWithOutputTag(ctx.OtherModuleDependencyTag(module), "") {
+					ctx.ModuleErrorf("unknown dependency on %q", ctx.OtherModuleName(module))
+				}
 			}
 		})
 	}
@@ -227,25 +227,9 @@ func (g *Module) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 		}
 	}
 
-	exCmd := styxExpandVariables(ctx, String(g.properties.Cmd))
+	cmd := styxExpandVariables(ctx, String(g.properties.Cmd))
 
-	// Dummy output dep
-	dummyDep := android.PathForModuleGen(ctx, ".dummy_dep")
-
-	genDir := android.PathForModuleGen(ctx)
-
-	// Pick a unique rule name and the user-visible description.
-	manifestName := "styx.sbox.textproto"
-	desc := "generate"
-	name := "generator"
-	manifestPath := android.PathForModuleOut(ctx, manifestName)
-
-	// Use a RuleBuilder to create a rule that runs the command inside an sbox sandbox.
-	rule := android.NewRuleBuilder(pctx, ctx).Sbox(genDir, manifestPath).SandboxTools()
-	rule.Command().Text("touch").Output(dummyDep)
-        cmd := rule.Command()
-
-	rawCommand, err := android.Expand(exCmd, func(name string) (string, error) {
+	rawCommand, err := android.Expand(cmd, func(name string) (string, error) {
 		switch name {
 		case "location":
 			if len(g.properties.Tools) == 0 && len(toolFiles) == 0 {
@@ -277,14 +261,26 @@ func (g *Module) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 		return
 	}
 
-	cmd.Text(rawCommand)
-	cmd.ImplicitOutput(dummyDep)
-	cmd.Implicits(g.inputDeps)
-	cmd.Implicits(g.implicitDeps)
+	// Dummy output dep
+	dummyDep := android.PathForModuleGen(ctx, ".dummy_dep")
+
+	genDir := android.PathForModuleGen(ctx)
+	manifestPath := android.PathForModuleOut(ctx, "generator.sbox.textproto")
+
+	// Use a RuleBuilder to create a rule that runs the command inside an sbox sandbox.
+	rule := android.NewRuleBuilder(pctx, ctx).Sbox(genDir, manifestPath).SandboxTools()
+
+	rule.Command().
+		Text(rawCommand).
+		ImplicitOutput(dummyDep).
+		Implicits(g.inputDeps).
+		Implicits(g.implicitDeps)
+
+	rule.Command().Text("touch").Output(dummyDep)
 
 	g.outputDeps = append(g.outputDeps, dummyDep)
 
-	rule.Build(name, desc)
+	rule.Build("generator", "generate")
 }
 
 func NewGenerator() *Module {
