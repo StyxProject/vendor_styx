@@ -17,9 +17,9 @@
 # limitations under the License.
 #
 
-TARGET_FILES_PACKAGE := $(PRODUCT_OUT)/$(PLATFORM_STYX_PACKAGE).zip
+STYX_TARGET_PACKAGE := $(PRODUCT_OUT)/StyxProject-$(PLATFORM_STYX_VERSION).zip
 
 .PHONY: styx-ota
 styx-ota: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) mv $(INTERNAL_OTA_PACKAGE_TARGET) $(TARGET_FILES_PACKAGE)
-	@echo "Package Complete: $(TARGET_FILES_PACKAGE)" >&2
+	$(hide) mv $(INTERNAL_OTA_PACKAGE_TARGET) $(STYX_TARGET_PACKAGE)
+	@echo "Package Complete: $(STYX_TARGET_PACKAGE)" >&2

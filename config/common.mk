@@ -31,9 +31,12 @@ $(call inherit-product, vendor/styx/prebuilts/targets.mk)
 # Inherit overlays
 $(call inherit-product, vendor/styx/overlay/overlays.mk)
 
+# Include common SE policy
+include device/lineage/sepolicy/common/sepolicy.mk
+
 # Inherit GMS
 ifneq ($(TARGET_DOES_NOT_USE_GAPPS), true)
-
+$(warning "Bundling partner GMS.")
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-google
@@ -46,8 +49,8 @@ endif
 DONT_DEXPREOPT_PREBUILTS := true
 
 # Include GMS, Modules, and Pixel features.
-$(call inherit-product, vendor/google/gms/config.mk)
-$(call inherit-product, vendor/google/pixel/config.mk)
+$(call inherit-product, vendor/partner_gms/products/gms.mk)
+# $(call inherit-product, vendor/google/pixel/config.mk)
 
 # Anything including updatable_apex.mk should have done so by now.
 ifeq ($(TARGET_FLATTEN_APEX), false)
