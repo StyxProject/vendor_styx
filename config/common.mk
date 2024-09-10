@@ -34,6 +34,9 @@ $(call inherit-product, vendor/styx/overlay/overlays.mk)
 # Include common SE policy
 include device/lineage/sepolicy/common/sepolicy.mk
 
+# Include common proprietary bundles
+$(call inherit-product-if-exists, vendor/styx-proprietary/products/common.mk)
+
 # Inherit GMS
 ifneq ($(TARGET_DOES_NOT_USE_GAPPS), true)
 $(warning "Bundling partner GMS.")
