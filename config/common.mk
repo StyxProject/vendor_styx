@@ -23,13 +23,16 @@ $(call inherit-product, vendor/styx/config/versioning.mk)
 $(call inherit-product, vendor/styx/config/BoardConfigStyx.mk)
 
 # Inherit from fonts
-# $(call inherit-product, vendor/styx/fonts/fonts.mk)
+$(call inherit-product, vendor/styx/fonts/fonts.mk)
 
 # Inherit prebuilt packages
 $(call inherit-product, vendor/styx/prebuilts/targets.mk)
 
 # Inherit overlays
 $(call inherit-product, vendor/styx/overlay/overlays.mk)
+
+# Inherit audio product
+$(call inherit-product, vendor/styx-prebuilts/audio/audio.mk)
 
 # Include common SE policy
 include device/lineage/sepolicy/common/sepolicy.mk

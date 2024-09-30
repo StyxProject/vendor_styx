@@ -1,0 +1,11 @@
+prebuilt_font {
+    name: "HarmonyOS-Sans-Italic.ttf",
+    src: "HarmonyOS-Sans-Italic.ttf",
+    product_specific: true,
+}
+
+prebuilt_font {
+    name: "HarmonyOS-Sans.ttf",
+    src: "HarmonyOS-Sans.ttf",
+    product_specific: true,
+}
