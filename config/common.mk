@@ -37,6 +37,9 @@ $(call inherit-product, vendor/styx-prebuilts/audio/audio.mk)
 # Inherit bootanimation
 $(call inherit-product, vendor/styx-prebuilts/bootanimation/bootanimation.mk)
 
+# Inherit clocks
+$(call inherit-product, vendor/styx-prebuilts/clocks/product.mk)
+
 # Include common SE policy
 include device/lineage/sepolicy/common/sepolicy.mk
 
