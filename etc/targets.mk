@@ -15,14 +15,4 @@
 #
 
 # Access Point Names
-PRODUCT_COPY_FILES += vendor/styx/prebuilts/telephony/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
-
-# Boot Animation
-PRODUCT_COPY_FILES += vendor/styx/prebuilts/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
-
-# Ringtone
-PRODUCT_COPY_FILES += vendor/styx/prebuilts/sounds/Styx.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/Styx.ogg
-
-# GrapheneOS Camera
-PRODUCT_PACKAGES += \
-    Camera
+PRODUCT_COPY_FILES += vendor/styx/etc/telephony/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
