@@ -4,3 +4,6 @@
 
 # Support one-handed mode
 ro.support_one_handed_mode=true
+
+# Blurs
+ro.surface_flinger.supports_background_blur=1
